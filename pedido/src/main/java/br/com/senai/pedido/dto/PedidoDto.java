@@ -1,5 +1,7 @@
 package br.com.senai.pedido.dto;
 
+import br.com.senai.pedido.model.Pedido;
+
 public class PedidoDto {
 
 	private Integer id;
@@ -16,7 +18,18 @@ public class PedidoDto {
 		this.id_cliente = id_cliente;
 		this.valor_itens = valor_itens;
 		this.status = status;
+		
+		
+		
 	}
+	
+	public PedidoDto(Pedido pedido) {
+		this.id = pedido.getId();
+		this.id_cliente = pedido.getId_cliente();
+		this.valor_itens = pedido.getValor_Itens();
+		this.status = pedido.getStatus();
+	}
+	
 	public Integer getId() {
 		return id;
 	}

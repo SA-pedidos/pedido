@@ -1,5 +1,6 @@
 package br.com.senai.pedido.model;
 
+import br.com.senai.pedido.dto.ItensDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,9 +14,9 @@ public class Itens {
 	private Integer id;
 	private Integer id_produto;
 	private Integer quant_prod;
-	private Double valor_unit;
-	private Double valor_total;
-	private Integer pedido_idpedido;
+	private double valor_unit;
+	private double valor_total;
+	
 	
 	public Itens() {
 	}
@@ -23,11 +24,11 @@ public class Itens {
 	public Itens(ItensDto itensDto) {
 		super();
 		this.id = itensDto.getId();
-		this.id_produto = itensDto.getId_Produto();
-		this.quant_prod = itensDto.getQuant_Prod();
-		this.valor_unit = itensDto.getValor_Unit();
-		this.valor_total = itensDto.getValor_Total();
-		this.pedido_idpedido = itensDto.getPedido_Idpedido();
+		this.id_produto = itensDto.getId_produto();
+		this.quant_prod = itensDto.getQuant_prod();
+		this.valor_unit = itensDto.getValor_unit();
+		this.valor_total = itensDto.getValor_total();
+		
 	}
 	
 	public Itens(Integer id, Integer id_produto, Integer quant_prod, Double valor_unit, Double valor_total,
@@ -38,7 +39,7 @@ public class Itens {
 		this.quant_prod = quant_prod;
 		this.valor_unit = valor_unit;
 		this.valor_total = valor_total;
-		this.pedido_idpedido = pedido_idpedido;
+		
 	}
 	public Integer getId() {
 		return id;
@@ -70,12 +71,7 @@ public class Itens {
 	public void setValor_total(Double valor_total) {
 		this.valor_total = valor_total;
 	}
-	public Integer getPedido_idpedido() {
-		return pedido_idpedido;
-	}
-	public void setPedido_idpedido(Integer pedido_idpedido) {
-		this.pedido_idpedido = pedido_idpedido;
-	}
+	
 }
 
 
