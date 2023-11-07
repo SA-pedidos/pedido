@@ -1,0 +1,57 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema pedido
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema pedido
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `pedido` DEFAULT CHARACTER SET utf8 ;
+USE `pedido` ;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`pedido`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pedido`.`pedido` (
+  `idPedido` INT NOT NULL AUTO_INCREMENT,
+  `id_cliente` INT NOT NULL,
+  `valor_Itens` DOUBLE NOT NULL,
+  `status` CHAR(1) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `pedido`.`item`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pedido`.`item` (
+  `idItem` INT NOT NULL AUTO_INCREMENT,
+  `id_produto` INT NOT NULL,
+  `quant_prod` INT NOT NULL,
+  `valor_unit` DOUBLE NOT NULL,
+  `valor_total` DOUBLE NOT NULL,
+  `pedido_idpedido` INT NOT NULL,
+  PRIMARY KEY (`id`, `pedido_idpedido`),
+  INDEX `fk_item_pedido_idx` (`pedido_idpedido` ASC) ,
+  CONSTRAINT `fk_item_pedido`
+    FOREIGN KEY (`pedido_idpedido`)
+    REFERENCES `pedido`.`pedido` (`idPedido`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+select * from item
+
+select * from pedido
+
+ 
