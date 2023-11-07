@@ -4,7 +4,7 @@ import br.com.senai.pedido.model.Pedido;
 
 public class PedidoDto {
 
-	private Integer id;
+	private Integer idPedido;
 	private Integer id_cliente;
 	private double valor_itens;
 	private char status;
@@ -14,7 +14,7 @@ public class PedidoDto {
 	}
 	public PedidoDto(Integer id, Integer id_cliente, double valor_itens, char status) {
 		super();
-		this.id = id;
+		this.idPedido = id;
 		this.id_cliente = id_cliente;
 		this.valor_itens = valor_itens;
 		this.status = status;
@@ -24,17 +24,17 @@ public class PedidoDto {
 	}
 	
 	public PedidoDto(Pedido pedido) {
-		this.id = pedido.getId();
+		this.idPedido = pedido.getId();
 		this.id_cliente = pedido.getId_cliente();
 		this.valor_itens = pedido.getValor_Itens();
 		this.status = pedido.getStatus();
 	}
 	
 	public Integer getId() {
-		return id;
+		return idPedido;
 	}
 	public void setId(Integer id) {
-		this.id = id;
+		this.idPedido = id;
 	}
 	public Integer getId_cliente() {
 		return id_cliente;

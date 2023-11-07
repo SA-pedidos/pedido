@@ -1,31 +1,31 @@
 package br.com.senai.pedido.dto;
 
-import br.com.senai.pedido.model.Itens;
+import br.com.senai.pedido.model.Item;
 
-public class ItensDto {
+public class ItemDto {
 
-	private Integer id;
+	private Integer idItem;
 	private Integer id_produto;
 	private Integer quant_prod;
 	private double valor_unit;
 	private double valor_total;
 
-	public ItensDto() {
+	public ItemDto() {
 		super();
 	}
 
-	public ItensDto(Integer id, Integer id_produto, Integer quant_prod, double valor_unit, double valor_total) {
+	public ItemDto(Integer id, Integer id_produto, Integer quant_prod, double valor_unit, double valor_total) {
 		super();
-		this.id = id;
+		this.idItem = id;
 		this.id_produto = id_produto;
 		this.quant_prod = quant_prod;
 		this.valor_unit = valor_unit;
 		this.valor_total = valor_total;
 	}
 
-	public ItensDto(Itens itens) {
+	public ItemDto(Item itens) {
 		super();
-		this.id = itens.getId();
+		this.idItem = itens.getId();
 		this.id_produto = itens.getId_produto();
 		this.quant_prod = itens.getQuant_prod();
 		this.valor_unit = itens.getValor_unit();
@@ -34,11 +34,11 @@ public class ItensDto {
 	}
 
 	public Integer getId() {
-		return id;
+		return idItem;
 	}
 
 	public void setId(Integer id) {
-		this.id = id;
+		this.idItem = id;
 	}
 
 	public Integer getId_produto() {

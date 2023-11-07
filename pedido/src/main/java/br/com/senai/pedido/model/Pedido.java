@@ -1,45 +1,53 @@
 package br.com.senai.pedido.model;
 
+import java.util.List;
+
 import br.com.senai.pedido.dto.PedidoDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Pedido {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer id_pedido;
 	private Integer id_cliente;
 	private double valor_Itens;
 	private char status;
+	
+	@JoinColumn(name = "pedido_idpedido")
+	@OneToMany
+	private List<Item> itens;
 	
 	public Pedido() {
 	}
 	
 	public Pedido(PedidoDto pedidoDto) {
 		
-		this.id = pedidoDto.getId();
+		this.id_pedido = pedidoDto.getId();
 		this.id_cliente = pedidoDto.getId_cliente();
 		this.valor_Itens = pedidoDto.getValor_itens();
 		this.status = pedidoDto.getStatus();
 	}
 
 	public Pedido(Integer id, Integer id_cliente, double valor_Itens, char status) {
-		this.id = id;
+		this.id_pedido = id;
 		this.id_cliente = id_cliente;
 		this.valor_Itens = valor_Itens;
 		this.status = status;
 	}
 
 	public Integer getId() {
-		return id;
+		return id_pedido;
 	}
 
 	public void setId(Integer id) {
-		this.id = id;
+		this.id_pedido = id;
 	}
 
 	public Integer getId_cliente() {
