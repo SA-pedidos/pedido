@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.senai.pedido.dto.ItemDto;
 import br.com.senai.pedido.dto.PedidoDto;
 import br.com.senai.pedido.model.Pedido;
 import br.com.senai.pedido.service.PedidoService;
@@ -50,4 +51,11 @@ public ResponseEntity<PedidoDto> atualizarPedido(@RequestBody PedidoDto pedidoDt
 	return ResponseEntity.ok(new PedidoDto(pedido));
 }
 
+@PostMapping("/criarPedido/{id_cliente}")
+public ResponseEntity<PedidoDto> criarPedido(@RequestBody List<ItemDto> ListaItens, @PathVariable Integer id_cliente){
+	Pedido pedido = pedidoService.criarPedido(ListaItens, id_cliente);
+	return ResponseEntity.ok(new PedidoDto(pedido));
+	
+	
+}
 }

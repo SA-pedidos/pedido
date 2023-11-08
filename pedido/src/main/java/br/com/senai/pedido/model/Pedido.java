@@ -3,6 +3,7 @@ package br.com.senai.pedido.model;
 import java.util.List;
 
 import br.com.senai.pedido.dto.PedidoDto;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,9 +22,18 @@ public class Pedido {
 	private char status;
 	
 	@JoinColumn(name = "pedido_idpedido")
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Item> itens;
 	
+	
+	public List<Item> getItens() {
+		return itens;
+	}
+
+	public void setItens(List<Item> itens) {
+		this.itens = itens;
+	}
+
 	public Pedido() {
 	}
 	
