@@ -21,6 +21,11 @@ public class Pedido {
 	private double valor_Itens;
 	private char status;
 	
+	public static char Andamento;
+	public static char Finalizado;
+	public static char Pronto;
+	
+	
 	@JoinColumn(name = "pedido_idpedido")
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Item> itens;

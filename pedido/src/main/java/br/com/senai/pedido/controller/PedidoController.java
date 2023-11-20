@@ -58,4 +58,11 @@ public ResponseEntity<PedidoDto> criarPedido(@RequestBody List<ItemDto> ListaIte
 	
 	
 }
+@PostMapping("/Finalizar/{id}")
+public ResponseEntity<PedidoDto> FinalizarPedido(@PathVariable Integer id) {
+	Pedido pedido = pedidoService.FinalizarPedido(id);
+	return ResponseEntity.ok(new PedidoDto(pedido));
+}
+
+
 }
